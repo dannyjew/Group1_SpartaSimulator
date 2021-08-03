@@ -1,0 +1,25 @@
+class container():
+	def __init__(self):
+		self.is_full = False
+		self.members = 0
+
+	def add(num):
+		self.members += num
+
+class centre(container):
+	def __init__(self):
+		super().__init__(self)
+		self.size = 100
+		self.capacity = 0 
+
+	def add_trainees(num):
+		if size-capacity > num and:
+			self.add(num)		
+
+
+class waiting_list(container):
+	def __init__(self):
+		super().__init__(self)
+		
+
+
