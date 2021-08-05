@@ -1,5 +1,6 @@
-import random
+from functions import is_int
 from ContainerClasses import *
+import random
 
 
 class Simulation:
@@ -13,12 +14,12 @@ class Simulation:
         self.open_centres = self.total_centres - self.full_centres
 
     def welcome_func(self):
-        print("*** Welcome to this Sparta Simulation ***\n")
+        print("\n     *** Welcome to this Sparta Simulation ***\n")
 
     def input_func(self):
         answer = 'None'
-        self.simulation_length = int(is_int('How long do you want the simulation to be (in months)?: ', answer))
-        self.total_centres = int(is_int('\nHow many open centres you want to start with?: ', answer))
+        self.simulation_length = int(is_int('How long do you want the simulation to last (in months)?: ', answer))
+        self.total_centres = int(is_int('\nHow many open centres do you want to start with?: ', answer))
 
     def add_new_centre(self, centre_list):
         self.total_centres += 1
@@ -33,8 +34,7 @@ class Simulation:
     def assign_trainees(self, waiting_list, centres_list, num):
         total = 0
         for centre in centres_list:
-            if not centre.used_up:
-                num = centre.add_trainees(num)
+            num = centre.add_trainees(num)
             if centre.is_full:
                 total += 1
         waiting_list.add(num)
@@ -56,13 +56,5 @@ class Simulation:
         print(f"Current Month: {self.current_month}.\n"
               f"-Total number of Open centres: {self.total_centres}.\n"
               f"-Total number of Full centres: {self.full_centres}.\n"
-              f"-Total number of Trainees currently training in centres: {self.total_trainees(centre_name)}.\n"
+              f"-Total number of Trainees currently training: {self.total_trainees(centre_name)}.\n"
               f"-Total number of Trainees on the waiting list: {waiting_list_name.members}.\n\n")
-
-
-def is_int(question, answer):
-    while not answer.isnumeric() or int(answer) < 0:
-        answer = input(question)
-        if not answer.isnumeric() or int(answer) < 0:
-            print("Invalid input, please enter a positive integer\n")
-    return answer
