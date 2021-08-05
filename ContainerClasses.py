@@ -29,6 +29,3 @@ class Centre(Container):
 class WaitingList(Container):
     def __init__(self):
         super().__init__()
-
-    def subtract(self, num: int):
-        self.members -= num

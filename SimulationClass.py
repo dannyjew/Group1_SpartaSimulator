@@ -9,8 +9,8 @@ class Simulation:
         self.current_month = 0
         self.total_centres = 0
         self.full_centres = 0
-        self.welcome_func()
-        self.input_func()
+        # self.welcome_func()
+        # self.input_func()
         self.open_centres = self.total_centres - self.full_centres
 
     def welcome_func(self):
@@ -52,9 +52,8 @@ class Simulation:
         return num
 
     def update(self, centre_name, waiting_list_name):
-
-        print(f"Current Month: {self.current_month}.\n"
-              f"-Total number of Open centres: {self.total_centres}.\n"
-              f"-Total number of Full centres: {self.full_centres}.\n"
-              f"-Total number of Trainees currently training: {self.total_trainees(centre_name)}.\n"
-              f"-Total number of Trainees on the waiting list: {waiting_list_name.members}.\n\n")
+        return f"Current Month: {self.current_month}.\n" \
+               f"-Total number of Open centres: {self.total_centres}.\n" \
+               f"-Total number of Full centres: {self.full_centres}.\n" \
+               f"-Total number of Trainees currently training: {self.total_trainees(centre_name)}.\n" \
+               f"-Total number of Trainees on the waiting list: {waiting_list_name.members}.\n\n"
