@@ -1,7 +1,7 @@
 from ContainerClasses import *
 
 
-def main(sim):
+def main(sim, often=2):
     centre_list = []
     waiting_list = WaitingList()
 
@@ -15,7 +15,7 @@ def main(sim):
         for centre in centre_list:
             centre.added = 0
 
-        if sim.current_month % 2 == 0:
+        if sim.current_month % often == 0:
             sim.add_new_centre(centre_list)
 
         sim.add_from_waiting_list(waiting_list, centre_list, waiting_list.members)
